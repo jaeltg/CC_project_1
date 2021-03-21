@@ -15,6 +15,9 @@ member_repository.save(member1)
 member2 = Member("Nick Miller", "29/09/1990", 7800643, "Standard", "The Loft, LA", "07912 123456")
 member_repository.save(member2)
 
+yogaclass1 = YogaClass("Aerial Yoga", 45, "Yoga whle being supported by a hammock to help with deeper stretches and greater flexibility.","Coach", "18:00", 10)
+yogaclass_repository.save(yogaclass1)
+
 # member_repository.delete(member1.id)
 
 # member2.test_update()
