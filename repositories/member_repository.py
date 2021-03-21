@@ -62,6 +62,8 @@ def select(id):
                         result['id'])
     return member
 
-   
+def delete_all():
+    sql = "DELETE FROM members"
+    run_sql(sql)   
 
 
