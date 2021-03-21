@@ -17,4 +17,7 @@ member_repository.save(member2)
 
 # member_repository.delete(member1.id)
 
+# member2.test_update()
+# member_repository.update(member2)
+
 pdb.set_trace()

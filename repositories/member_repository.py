@@ -70,3 +70,26 @@ def delete(id):
     sql = "DELETE FROM members WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def update(member):
+    sql = """
+        UPDATE members 
+        SET (name, 
+             date_of_birth, 
+             memb_number,
+             memb_type, 
+             address, 
+             contact_number, 
+             active)  
+             = (%s, %s, %s, %s, %s, %s, %s) 
+             WHERE id = %s
+        """
+    values = [member.name, 
+              member.date_of_birth, 
+              member.memb_number, 
+              member.memb_type, 
+              member.address, 
+              member.contact_number,
+              member.active,
+              member.id]
+    run_sql(sql, values)

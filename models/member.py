@@ -9,3 +9,7 @@ class Member:
         self.contact_number = contact_number
         self.active = active
         self.id = id 
+
+
+    # def test_update(self):
+    #     self.name = "Caroline"     
