@@ -24,3 +24,22 @@ def save(yogaclass):
     id = results[0]['id']
     yogaclass.id = id
     return yogaclass
+
+
+def select_all():
+    yogaclasses = []
+
+    sql = "SELECT * FROM yogaclasses"
+    results = run_sql(sql)
+
+    for row in results:
+        yogaclass = YogaClass(row['name'], 
+                              row['duration'],
+                              row['description'],
+                              row['instructor'], 
+                              row['time'], 
+                              row['capacity'], 
+                              row['active'],   
+                              row['id'])
+        yogaclasses.append(yogaclass)
+    return yogaclasses
