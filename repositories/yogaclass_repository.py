@@ -66,3 +66,9 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM yogaclasses"
     run_sql(sql) 
+
+
+def delete(id):
+    sql = "DELETE FROM yogaclasses WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)    

@@ -19,7 +19,11 @@ member_repository.save(member2)
 yogaclass1 = YogaClass("Aerial Yoga", 45, "Yoga whle being supported by a hammock to help with deeper stretches and greater flexibility.","Coach", "18:00", 10)
 yogaclass_repository.save(yogaclass1)
 
+yogaclass2 = YogaClass("Power Yoga", 45, "Fast paced class focussing  more on core and upper body work to increase stamina, flexibility and strength.", "Coach", "13:00", 10)
+yogaclass_repository.save(yogaclass2)
+
 # member_repository.delete(member1.id)
+# yogaclass_repository.delete(yogaclass1.id)
 
 # member2.test_update()
 # member_repository.update(member2)
