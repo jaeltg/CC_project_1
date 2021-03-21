@@ -1,5 +1,5 @@
 import pdb
-from models.class import Class
+from models.yogaclass import Class
 from models.member import Member
 from models.booking import Booking
 
