@@ -43,3 +43,21 @@ def select_all():
                               row['id'])
         yogaclasses.append(yogaclass)
     return yogaclasses
+
+
+def select(id):
+    yogaclass = None
+    sql = "SELECT * FROM yogaclasses WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        yogaclass = YogaClass(result['name'], 
+                              result['duration'],
+                              result['description'],
+                              result['instructor'], 
+                              result['time'], 
+                              result['capacity'], 
+                              result['active'],   
+                              result['id'])
+    return yogaclass
