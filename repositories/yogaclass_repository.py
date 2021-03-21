@@ -61,3 +61,8 @@ def select(id):
                               result['active'],   
                               result['id'])
     return yogaclass
+
+
+def delete_all():
+    sql = "DELETE FROM yogaclasses"
+    run_sql(sql) 
