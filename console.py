@@ -28,4 +28,7 @@ yogaclass_repository.save(yogaclass2)
 # member2.test_update()
 # member_repository.update(member2)
 
+# yogaclass2.test_update()
+# yogaclass_repository.update(yogaclass2)
+
 pdb.set_trace()

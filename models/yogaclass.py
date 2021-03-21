@@ -9,3 +9,6 @@ class YogaClass:
         self.capacity = capacity
         self.active = active
         self.id = id
+
+   # def test_update(self):
+   #    self.name = "Meditation"     
