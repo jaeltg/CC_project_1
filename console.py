@@ -22,6 +22,10 @@ yogaclass_repository.save(yogaclass1)
 yogaclass2 = YogaClass("Power Yoga", 45, "Fast paced class focussing  more on core and upper body work to increase stamina, flexibility and strength.", "Coach", "13:00", 10)
 yogaclass_repository.save(yogaclass2)
 
+booking1 = Booking(member1, yogaclass1)
+booking_repository.save(booking1)
+
+
 # member_repository.delete(member1.id)
 # yogaclass_repository.delete(yogaclass1.id)
 
