@@ -3,7 +3,7 @@ DROP TABLE members;
 DROP TABLE yogaclasses;
 
 CREATE TABLE members (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,  
     name VARCHAR(255),
     date_of_birth VARCHAR(255),
     memb_number INT,
@@ -27,5 +27,5 @@ CREATE TABLE yogaclasses (
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    yogaclass_id INT REFERENCES yogaclasses(id) ON DELETE CASCADE,
+    yogaclass_id INT REFERENCES yogaclasses(id) ON DELETE CASCADE
 );
