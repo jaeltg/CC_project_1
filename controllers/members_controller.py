@@ -38,3 +38,19 @@ def create_task():
 def edit_member(id):
     member = member_repository.select(id)
     return render_template('members/edit.html', title = "Edit Member", selected_member = member)
+
+@members_blueprint.route("/members/<id>", methods=['POST'])
+def update_member(id):
+    name = request.form["name"]
+    date_of_birth = request.form["date_of_birth"]
+    memb_number = request.form["memb_number"]
+    memb_type = request.form["memb_type"]
+    address = request.form["address"]
+    contact_number = request.form["contact_number"]
+    active = request.form["active"]
+
+    member = Member(name, date_of_birth, memb_number, memb_type, address, contact_number, active, id)
+
+    member_repository.update(member)
+    return redirect('/members')
+
