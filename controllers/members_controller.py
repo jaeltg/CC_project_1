@@ -13,7 +13,8 @@ def members():
 @members_blueprint.route('/members/<id>')
 def show_member(id):
     member = member_repository.select(id)
-    return render_template("members/show.html", title=member.name, selected_member= member)
+    yogaclasses = member_repository.yogaclasses(member)
+    return render_template("members/show.html", title=member.name, selected_member= member, found_yogaclasses=yogaclasses)
 
 @members_blueprint.route('/members/new')
 def new_member():

@@ -102,8 +102,8 @@ def yogaclasses(member):
     sql = """
         SELECT yogaclasses.* FROM yogaclasses
         INNER JOIN bookings
-        ON yogaclass.id = bookings.yogaclass_id
-        WHERE yogaclass_id = %s
+        ON yogaclasses.id = bookings.yogaclass_id
+        WHERE member_id = %s
      """
     values = [member.id]
     results = run_sql(sql, values)

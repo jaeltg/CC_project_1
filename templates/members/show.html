@@ -20,7 +20,11 @@
 </section>
 <section>
     <h2>Classes Booked:</h2>
-    <p>this is were classes will go after function is added</p>
+    <ul>
+     {% for yogaclass in found_yogaclasses %}
+        <li>{{yogaclass.name}} ({{yogaclass.time}})</li>
+     {% endfor %}   
+    </ul>
 </section>
 <a href="/members/{{selected_member.id}}/edit">Edit Member</a>
 
