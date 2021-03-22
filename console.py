@@ -7,6 +7,7 @@ import repositories.yogaclass_repository as yogaclass_repository
 import repositories.member_repository as member_repository
 import repositories.booking_repository as booking_repository
 
+booking_repository.delete_all()
 yogaclass_repository.delete_all()
 member_repository.delete_all()
 
