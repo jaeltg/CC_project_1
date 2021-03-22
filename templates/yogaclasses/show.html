@@ -1,5 +1,28 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<h2>{{selected_yogaclass.name}}</h2>
+<section>
+    <p>
+        {{selected_yogaclass.description}}
+    </p>
+    <h3>Time</h3>
+        <p>
+            {{selected_yogaclass.time}} ({{selected_yogaclass.duration}} min)
+        </p>
+    <h3>Instructor</h3>
+        <!-- <img src="" alt=""> -->
+        <p>
+            {{selected_yogaclass.instructor}}
+        </p>
+</section>
+<section>
+    <!-- counter thing on parenthsis -->
+    <h3>Members Booked ()</h3> 
+        <p>
+            This is were members booked will go after making function
+        </p>
+</section>
 
+<a href="/yogaclasses/{{selected_yogaclass.id}}/edit">Edit Class</a>
 {% endblock %}
