@@ -1,5 +1,26 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<h2>Add Class</h2>
+<form action="/yogaclasses/{{selected_yogaclass.id}}" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value={{selected_yogaclass.name}} required>
 
+    <label for="duration">Duration:</label>
+    <input type="number" id="duration" name="duration" value={{selected_yogaclass.duration}} required>
+
+    <label for="description"></label>Description:</label>
+    <input type="text" id="description" name="description" value={{selected_yogaclass.description}} required>
+
+    <label for="instructor">Instructor:</label>
+    <input type="text" id="instructor" name="instructor" value={{selected_yogaclass.instructor}} required>
+
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" value={{selected_yogaclass.time}} required>
+
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" name="capacity" value={{selected_yogaclass.capacity}} required>
+
+    <input type="submit" value="Edit Class">
+</form>
 {% endblock %}

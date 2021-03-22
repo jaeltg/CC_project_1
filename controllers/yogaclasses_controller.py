@@ -33,3 +33,8 @@ def create_yogaclass():
     yogaclass_repository.save(yogaclass)
 
     return redirect('/yogaclasses')    
+
+@yogaclasses_blueprint.route('/yogaclasses/<id>/edit', methods =['GET'])
+def edit_yogaclass(id):
+    yogaclass = yogaclass_repository.select(id)
+    return render_template('yogaclasses/edit.html', title = "Edit Class", selected_yogaclass = yogaclass)
