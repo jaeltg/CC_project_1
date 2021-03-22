@@ -2,4 +2,18 @@
 
 {% block content %}
 
+<h2>Members</h2>
+
+<section>
+{% for member in all_members %}
+    <!-- <img src="" alt=""> need if statement for image to change with each member-->
+    <h3>{{member.name}}</h3>
+    <section>
+        <h4>Membership:</h4>
+        <p>{{member.memb_number}}</p>
+        <p>{{member.memb_type}}</p>
+    </section>   
+{% endfor %}
+</section>
+
 {% endblock %}
