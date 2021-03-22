@@ -16,7 +16,7 @@ def save(yogaclass):
                                 capacity, 
                                 active) 
             VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *
-        """
+        """   
     values = [yogaclass.name, 
               yogaclass.duration, 
               yogaclass.description, 

@@ -19,7 +19,8 @@ CREATE TABLE yogaclasses (
     duration INT,
     description TEXT,
     instructor VARCHAR(255),
-    time TIME(0),
+    time VARCHAR(255),
+    -- CHECK INTO TIME WITHOUT SECONDS
     capacity INT,
     active BOOLEAN
 );

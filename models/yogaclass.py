@@ -10,5 +10,4 @@ class YogaClass:
         self.active = active
         self.id = id
 
-   # def test_update(self):
-   #    self.name = "Meditation"     
+ 
