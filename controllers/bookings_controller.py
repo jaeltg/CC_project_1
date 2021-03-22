@@ -7,10 +7,22 @@ import repositories.yogaclass_repository as yogaclass_repository
 
 bookings_blueprint = Blueprint("bookings", __name__)
 
-
+@bookings_blueprint.route("/bookings/successful")
+def booking_successful():
+    return render_template("bookings/successful.html", title="Booking Succesful!")
 
 @bookings_blueprint.route("/bookings/new", methods=['GET'])
 def new_booking():
     members = member_repository.select_all()
     yogaclasses = yogaclass_repository.select_all()
-    return render_template("bookings/new.html", all_members = members, all_yogaclasses = yogaclasses)
+    return render_template("bookings/new.html", title="Make a Booking", all_members = members, all_yogaclasses = yogaclasses)
+
+@bookings_blueprint.route("/bookings",  methods=['POST'])
+def create_booking():
+    member_id = request.form['member_id']
+    yogaclass_id = request.form['yogaclass_id']
+    member = member_repository.select(member_id)
+    yogaclass = yogaclass_repository.select(yogaclass_id)
+    booking = Booking(member, yogaclass)
+    booking_repository.save(booking)
+    return redirect('/bookings/successful')  

@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Make a Booking</h1>
 <!-- can i not have an index for bookings? -->
-<form action="" method="POST">
+<form action="/bookings" method="POST">
   <label for="member">Select a member:</label>
     <select name="member_id" id="member">
       {% for member in all_members %}
