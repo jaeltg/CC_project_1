@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 
 from models.yogaclass import YogaClass
+from models.member import Member
 
 def save(yogaclass):
     sql = """
@@ -95,4 +96,26 @@ def update(yogaclass):
               yogaclass.capacity,
               yogaclass.active,
               yogaclass.id]
-    run_sql(sql, values)    
+    run_sql(sql, values) 
+
+def members(yogaclass):
+    sql = """
+        SELECT members.* FROM members
+        INNER JOIN bookings
+        ON members.id = bookings.member_id
+        WHERE yogaclass_id = %s
+     """
+    values = [yogaclass.id]
+    results = run_sql(sql, values)
+    members = []
+    for row in results:
+       member = Member(row['name'], 
+                       row['date_of_birth'],
+                       row['memb_number'],
+                       row['memb_type'], 
+                       row['address'], 
+                       row['contact_number'], 
+                       row['active'],   
+                       row['id'])
+       members.append(member)
+    return members      
