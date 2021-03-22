@@ -53,3 +53,8 @@ def update_yogaclass(id):
 
     yogaclass_repository.update(yogaclass)
     return redirect(f'/yogaclasses/{id}')
+
+@yogaclasses_blueprint.route("/yogaclasses/<id>/delete", methods=['POST'])
+def delete_yogaclass(id):
+    yogaclass_repository.delete(id)
+    return redirect('/yogaclasses')    
