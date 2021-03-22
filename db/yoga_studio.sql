@@ -5,7 +5,7 @@ DROP TABLE yogaclasses;
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,  
     name VARCHAR(255),
-    date_of_birth VARCHAR(255),
+    date_of_birth DATE,
     memb_number INT,
     memb_type VARCHAR(255),
     address VARCHAR(500),
