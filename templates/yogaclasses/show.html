@@ -19,9 +19,11 @@
 <section>
     <!-- counter thing on parenthsis -->
     <h3>Members Booked ()</h3> 
-        <p>
-            This is were members booked will go after making function
-        </p>
+      <ul>
+      {% for member in found_members%}    
+          <li>{{member.name}}</li>
+      {% endfor %}    
+      </ul>
 </section>
 
 <a href="/yogaclasses/{{selected_yogaclass.id}}/edit">Edit Class</a>
