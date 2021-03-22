@@ -10,3 +10,17 @@ def save(booking):
     results = run_sql( sql, values )
     booking.id = results[0]['id']
     return booking
+
+def select_all():
+    bookings = []
+
+    sql = "SELECT * FROM bookings"
+    results = run_sql(sql)
+
+    for row in results:
+        member = member_repository.select(row['member_id'])
+        yogaclass = yogaclass_repository.select(row['yogaclass_id'])
+        booking = Booking(member, yogaclass, row['id'])
+        bookings.append(booking)
+    return bookings
+ 

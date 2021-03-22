@@ -25,6 +25,9 @@ yogaclass_repository.save(yogaclass2)
 booking1 = Booking(member1, yogaclass1)
 booking_repository.save(booking1)
 
+booking2 = Booking(member1, yogaclass2)
+booking_repository.save(booking2)
+
 
 # member_repository.delete(member1.id)
 # yogaclass_repository.delete(yogaclass1.id)
