@@ -1,5 +1,27 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<section>
+    <h2>{{selected_member.name}}</h2>
+    <p>
+        Date of Birth: {{selected_member.date_of_birth}}
+    </p>
+    <p>
+        Address: {{selected_member.address}}
+    </p>
+    <p>
+        Contact Number: {{selected_member.contact_number}}
+    </p>
+</section>
+<section>
+    <h3>Membership:</h3>
+    <p>{{selected_member.memb_number}}</p>
+    <p>{{selected_member.memb_type}}</p>
+</section>
+<section>
+    <h2>Classes Booked:</h2>
+    <p>this is were classes will go after function is added</p>
+</section>
+<a href="">Edit Member</a>
 
 {% endblock %}
