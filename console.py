@@ -32,6 +32,7 @@ booking_repository.save(booking2)
 
 # member_repository.delete(member1.id)
 # yogaclass_repository.delete(yogaclass1.id)
+# booking_repository.delete(booking2.id)
 
 # member2.test_update()
 # member_repository.update(member2)
