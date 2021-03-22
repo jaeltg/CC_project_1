@@ -20,9 +20,14 @@
     <!-- counter thing on parenthsis -->
     <h3>Members Booked ()</h3> 
       <ul>
-      {% for member in found_members%}    
-          <li>{{member.name}}</li>
-      {% endfor %}    
+      {% for member in found_members%}   
+          <li>{{member.name}}</li>    
+      {% endfor %}
+      {% for booking in found_bookings%}     
+      <form action="/bookings/{{booking.id}}/delete" method="POST">
+        <input type="submit" value="Remove Booking">
+      </form> 
+      {% endfor %} 
       </ul>
 </section>
 
