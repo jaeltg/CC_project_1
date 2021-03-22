@@ -19,7 +19,7 @@ CREATE TABLE yogaclasses (
     duration INT,
     description TEXT,
     instructor VARCHAR(255),
-    time VARCHAR(255),
+    time TIME(0),
     capacity INT,
     active BOOLEAN
 );

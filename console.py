@@ -29,17 +29,4 @@ booking_repository.save(booking1)
 booking2 = Booking(member1, yogaclass2)
 booking_repository.save(booking2)
 
-
-# member_repository.delete(member1.id)
-# yogaclass_repository.delete(yogaclass1.id)
-# booking_repository.delete(booking2.id)
-
-# member1.test_update()
-# member_repository.update(member1)
-
-# # yogaclass2.test_update()
-# # yogaclass_repository.update(yogaclass2)
-
-# booking_repository.update(booking1)
-
 pdb.set_trace()
