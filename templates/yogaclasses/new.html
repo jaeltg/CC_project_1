@@ -1,5 +1,26 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<h2>Add Class</h2>
+<form action="/yogaclasses" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name" required>
 
+    <label for="duration">Duration:</label>
+    <input type="number" id="duration" name="duration" placeholder="Class Duration in Minutes" required>
+
+    <label for="description"></label>Description:</label>
+    <input type="text" id="description" name="description" placeholder="Class Description" required>
+
+    <label for="instructor">Instructor:</label>
+    <input type="text" id="instructor" name="instructor" placeholder="Instructor Name" required>
+
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" placeholder="Class Time" required>
+
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" name="capacity" placeholder="Class Capacity" required>
+
+    <input type="submit" value="Add Class">
+</form>
 {% endblock %}

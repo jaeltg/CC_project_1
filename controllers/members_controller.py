@@ -20,7 +20,7 @@ def new_member():
     return render_template("members/new.html", title="Add Member")
 
 @members_blueprint.route('/members', methods=['POST'])
-def create_task():
+def create_member():
     name = request.form["name"]
     date_of_birth = request.form["date_of_birth"]
     memb_number = request.form["memb_number"]
