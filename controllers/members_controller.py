@@ -33,3 +33,8 @@ def create_task():
     member_repository.save(member)
 
     return redirect('/members')
+
+@members_blueprint.route('/members/<id>/edit', methods =['GET'])
+def edit_member(id):
+    member = member_repository.select(id)
+    return render_template('members/edit.html', title = "Edit Member", selected_member = member)
