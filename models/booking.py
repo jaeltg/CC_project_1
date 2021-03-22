@@ -4,3 +4,5 @@ class Booking:
         self.member = member
         self.yogaclass = yogaclass
         self.id = id
+
+    

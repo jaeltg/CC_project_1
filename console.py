@@ -34,10 +34,12 @@ booking_repository.save(booking2)
 # yogaclass_repository.delete(yogaclass1.id)
 # booking_repository.delete(booking2.id)
 
-# member2.test_update()
-# member_repository.update(member2)
+# member1.test_update()
+# member_repository.update(member1)
 
-# yogaclass2.test_update()
-# yogaclass_repository.update(yogaclass2)
+# # yogaclass2.test_update()
+# # yogaclass_repository.update(yogaclass2)
+
+# booking_repository.update(booking1)
 
 pdb.set_trace()
