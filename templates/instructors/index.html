@@ -10,6 +10,8 @@
         {{instructor.name}}
     </h3>
     <p>{{instructor.contact_number}}</p>
+
+    <a href="/instructors/{{instructor.id}}/edit">Edit Instructor</a> 
    
     <form action="/instructors/{{instructor.id}}/delete" method="POST">
         <input type="submit" value="Remove Instructor">

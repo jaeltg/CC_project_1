@@ -1,5 +1,16 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<h2>Add Instructor</h2>
+
+<form action="/instructors" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name" required>
+
+    <label for="contact_number">Contact Number:</label>
+    <input type="text" id="contact_number" name="contact_number" required>
+
+    <input type="submit" value="Add Instructor">
+</form>
 
 {% endblock %}
