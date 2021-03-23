@@ -13,7 +13,15 @@
     <input type="text" id="description" name="description" placeholder="Class Description" required>
 
     <label for="instructor">Instructor:</label>
-    <input type="text" id="instructor" name="instructor" placeholder="Instructor Name" required>
+    <select name="instructor" id="instructor">
+        <option selected="true" disabled="disabled">Choose Instructor</option>
+        {% for instructor in all_instructors %}
+        <option value="{{instructor.id}}" required>{{instructor.name}}</option>
+        {% endfor %}
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
 
     <label for="time">Time:</label>
     <input type="time" id="time" name="time" placeholder="Class Time" required>

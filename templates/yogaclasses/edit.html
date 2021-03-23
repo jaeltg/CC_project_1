@@ -13,7 +13,17 @@
     <input type="text" id="description" name="description" value="{{selected_yogaclass.description}}" required>
 
     <label for="instructor">Instructor:</label>
-    <input type="text" id="instructor" name="instructor" value="{{selected_yogaclass.instructor}}" required>
+    <select name="instructor" id="instructor">
+        {% for instructor in all_instructors %}
+        <option value="{{instructor.id}}"
+         {% if selected_yogaclass.instructor.id == instructor.id %} selected ="selected" {% endif %}>
+         {{instructor.name}}
+        </option>
+        {% endfor %}
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="{{selected_yogaclass.date}}" required>
 
     <label for="time">Time:</label>
     <input type="time" id="time" name="time" value="{{selected_yogaclass.time}}" required>
