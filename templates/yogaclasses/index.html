@@ -17,9 +17,11 @@
         <input type="submit" value="Remove Class">
     </form> 
 
-    <!-- flags according to capacity (x/x), (FULL), NOT AVAILABLE-->
-    <a href="">Book Class ()</a>
-
+    {% if yogaclass.available == False %}
+    <a href="">Class is Full</a>
+    {% else %}
+    <a href="">Book Class</a>
+    {% endif %}
 {% endfor %}
 </section>
 {% endblock %}

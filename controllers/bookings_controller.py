@@ -30,7 +30,7 @@ def create_booking():
     members = yogaclass_repository.members(yogaclass)
     booking = Booking(member, yogaclass)
     booking.check_if_capacity(members)
-    if booking.available == True:
+    if booking.yogaclass.available == True:
         booking_repository.save(booking)
         return redirect('/bookings/successful')
     else:
@@ -41,3 +41,20 @@ def delete_booking(id):
     yogaclass_id = booking_repository.select(id).yogaclass.id
     booking_repository.delete(id)
     return redirect(f'/yogaclasses/{yogaclass_id}')
+
+# @bookings_blueprint.route("/bookings/<id>/edit", methods=['GET'])
+# def edit_task(id):
+#     task = task_repository.select(id)
+#     users = user_repository.select_all()
+#     return render_template('tasks/edit.html', selected_task = task, all_users = users)
+
+# @bookings_blueprint.route("/tasks/<id>", methods=['POST'])
+# def update_task(id):
+#     description = request.form['description']
+#     user_id = request.form['user']
+#     duration = request.form['duration']
+#     completed = request.form['completed']
+#     user = user_repository.select(user_id)
+#     task = Task(description, user, duration, completed, id) 
+#     task_repository.update(task)
+#     return redirect('/tasks')        
