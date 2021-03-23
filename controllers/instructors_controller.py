@@ -2,13 +2,15 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.instructor import Instructor
 import repositories.instructor_repository as instructor_repository
+import repositories.yogaclass_repository as yogaclass_repository
 
 instructors_blueprint = Blueprint("instructors", __name__)
 
 @instructors_blueprint.route('/instructors')
 def instructors():
     instructors = instructor_repository.select_all()
-    return render_template("instructors/index.html", title = "Instructors", all_instructors=instructors)    
+    yogaclasses = yogaclass_repository.select_all()
+    return render_template("instructors/index.html", title = "Instructors", all_instructors=instructors, all_yogaclasses = yogaclasses)    
 
 @instructors_blueprint.route('/instructors/new')
 def new_instructor():

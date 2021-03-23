@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 
 from models.instructor import Instructor
+from models.yogaclass import YogaClass
 
 
 def save(instructor):
@@ -63,3 +64,23 @@ def update(instructor):
               instructor.contact_number,
               instructor.id]
     run_sql(sql, values)
+
+def yogaclasses(instructor):
+    yogaclasses = []
+
+    sql = "SELECT * FROM yogaclasses WHERE instructor_id = %s"
+    values = [instructor.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        yogaclass = YogaClass(row['name'], 
+                              row['duration'],
+                              row['description'],
+                              row['instructor_id'],
+                              row['date'],
+                              row['time'], 
+                              row['capacity'], 
+                              row['active'],   
+                              row['id'])
+        yogaclasses.append(yogaclass)
+    return yogaclasses    

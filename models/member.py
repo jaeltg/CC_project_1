@@ -1,6 +1,7 @@
 class Member:
 
-    def __init__(self, name, date_of_birth, memb_number, memb_type, address, contact_number, active = True, id = None):
+    def __init__(self, image_url, name, date_of_birth, memb_number, memb_type, address, contact_number, active = True, id = None):
+        self.image_url = image_url
         self.name = name
         self.date_of_birth = date_of_birth
         self.memb_number = memb_number
@@ -11,5 +12,4 @@ class Member:
         self.id = id 
 
 
-    # def test_update(self):
-    #     self.name = "Caroline"     
+       
