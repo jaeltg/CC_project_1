@@ -10,7 +10,8 @@ CREATE TABLE memb_types (
 );
 
 CREATE TABLE members (
-    id SERIAL PRIMARY KEY,  
+    id SERIAL PRIMARY KEY,
+    image_url TEXT,  
     name VARCHAR(255),
     date_of_birth DATE,
     memb_number INT,
@@ -28,7 +29,6 @@ CREATE TABLE instructors (
 
 CREATE TABLE yogaclasses (
     id SERIAL PRIMARY KEY,
-    image_url TEXT,
     name VARCHAR(255),
     duration INT,
     description TEXT,

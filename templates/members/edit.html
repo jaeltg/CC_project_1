@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Edit Member</h2>
 <form action="/members/{{selected_member.id}}" method="POST">
-    <label for="image_url">Name:</label>
+    <label for="image_url">Image:</label>
     <input type="text" id="image_url" name="image_url" value="{{selected_member.image_url}}" required>
 
     <label for="name">Name:</label>

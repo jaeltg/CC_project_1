@@ -4,8 +4,8 @@ from models.memb_type import MembType
 
 def save(memb_type):
     sql = """
-        INSERT INTO memb_types name
-            VALUES %s RETURNING *
+        INSERT INTO memb_types (name)
+            VALUES (%s) RETURNING *
         """
     values = [memb_type.name]
     results = run_sql(sql, values)
