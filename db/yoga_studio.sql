@@ -1,6 +1,7 @@
 DROP TABLE bookings;
 DROP TABLE members;
 DROP TABLE yogaclasses;
+DROP TABLE instructors;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,  
@@ -13,14 +14,20 @@ CREATE TABLE members (
     active BOOLEAN
 );
 
+CREATE TABLE instructors (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    contact_number VARCHAR(255)
+);
+
 CREATE TABLE yogaclasses (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     duration INT,
     description TEXT,
-    instructor VARCHAR(255),
+    instructor_id INT references instructors(id),
+    date DATE,
     time VARCHAR(255),
-    -- CHECK INTO TIME WITHOUT SECONDS
     capacity INT,
     active BOOLEAN
 );
