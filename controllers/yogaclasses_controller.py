@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+
 from models.yogaclass import YogaClass
+
 import repositories.yogaclass_repository as yogaclass_repository
+import repositories.instructor_repository as instructor_repository
 
 yogaclasses_blueprint = Blueprint("yogaclasses", __name__)
 
@@ -19,18 +22,22 @@ def show_yogaclass(id):
 
 @yogaclasses_blueprint.route('/yogaclasses/new')
 def new_yogaclass():
-    return render_template("yogaclasses/new.html", title="Add Class")
+    instructors = instructor_repository.select_all()
+    return render_template("yogaclasses/new.html", title="Add Class", all_instructors = instructors)
 
 @yogaclasses_blueprint.route('/yogaclasses', methods=['POST'])
 def create_yogaclass():
     name = request.form["name"]
     duration = request.form["duration"]
     description = request.form["description"]
-    instructor = request.form["instructor"]
+    instructor_id = request.form["instructor"]
+    date = request.form["date"]
     time = request.form["time"]
     capacity = request.form["capacity"]
 
-    yogaclass = YogaClass(name, duration, description, instructor, time, capacity)
+    instructor = instructor_repository.select(instructor_id)
+
+    yogaclass = YogaClass(name, duration, description, instructor, date, time, capacity)
 
     yogaclass_repository.save(yogaclass)
 
@@ -39,19 +46,23 @@ def create_yogaclass():
 @yogaclasses_blueprint.route('/yogaclasses/<id>/edit', methods =['GET'])
 def edit_yogaclass(id):
     yogaclass = yogaclass_repository.select(id)
-    return render_template('yogaclasses/edit.html', title = "Edit Class", selected_yogaclass = yogaclass)
+    instructors = instructor_repository.select_all()
+    return render_template('yogaclasses/edit.html', title = "Edit Class", selected_yogaclass = yogaclass, all_instructors = instructors)
 
 @yogaclasses_blueprint.route("/yogaclasses/<id>", methods=['POST'])
 def update_yogaclass(id):
     name = request.form["name"]
     duration = request.form["duration"]
     description = request.form["description"]
-    instructor = request.form["instructor"]
+    instructor_id = request.form["instructor"]
+    date = request.form["date"]
     time = request.form["time"]
     capacity = request.form["capacity"]
     active = request.form["active"]
 
-    yogaclass = YogaClass(name, duration, description, instructor, time, capacity, active, id)
+    instructor = instructor_repository.select(instructor_id)
+
+    yogaclass = YogaClass(name, duration, description, instructor, date, time, capacity, active, id)
 
     yogaclass_repository.update(yogaclass)
     return redirect(f'/yogaclasses/{id}')
