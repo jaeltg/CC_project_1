@@ -17,8 +17,9 @@ def yogaclass():
 def show_yogaclass(id):
     yogaclass = yogaclass_repository.select(id)
     members = yogaclass_repository.members(yogaclass)
+    member_count = yogaclass.count_members(members)
     bookings = yogaclass_repository.bookings(yogaclass)
-    return render_template("yogaclasses/show.html", title=yogaclass.name, selected_yogaclass = yogaclass, found_members = members, found_bookings = bookings)
+    return render_template("yogaclasses/show.html", title=yogaclass.name, selected_yogaclass = yogaclass, found_members = members, found_bookings = bookings, member_count=member_count)
 
 @yogaclasses_blueprint.route('/yogaclasses/new')
 def new_yogaclass():

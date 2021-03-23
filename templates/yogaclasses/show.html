@@ -17,8 +17,7 @@
         </p>
 </section>
 <section>
-    <!-- counter thing on parenthsis -->
-    <h3>Members Booked ()</h3> 
+    <h3>Members Booked ({{member_count}}/{{selected_yogaclass.capacity}})</h3> 
       <ul>
       {% for member in found_members%}   
           <li>{{member.name}}</li>    
