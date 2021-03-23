@@ -11,16 +11,18 @@ def save(yogaclass):
         INSERT INTO yogaclasses (name, 
                                 duration, 
                                 description,
-                                instructor, 
+                                instructor_id,
+                                date, 
                                 time, 
                                 capacity, 
                                 active) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *
         """   
     values = [yogaclass.name, 
               yogaclass.duration, 
               yogaclass.description, 
-              yogaclass.instructor, 
+              yogaclass.instructor.id,
+              yogaclass.date,
               yogaclass.time, 
               yogaclass.capacity,
               yogaclass.active]
