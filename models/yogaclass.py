@@ -17,3 +17,12 @@ class YogaClass:
       member_count = len(self.members)
       return member_count
 
+   def check_if_capacity(self, members):
+      member_count = self.count_members(members)
+      if member_count == self.capacity:
+         return "CLASS IS FULL"
+      else:
+         return "Book Class"   
+
+
+
