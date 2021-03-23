@@ -20,7 +20,25 @@
     {% if yogaclass.available == False %}
     <a href="">Class is Full</a>
     {% else %}
-    <a href="">Book Class</a>
+    <details>
+    <!-- Does not work! -->
+        <summary>Book Class</summary>
+
+        <form action="/bookings" method="POST">
+            <label for="member">Select a member:</label>
+              <select name="member_id" id="member">
+                {% for member in all_members %}
+                <option value="{{member.id}}">{{member.name}}</option>
+                {% endfor %}
+              </select>
+            
+            <label for="yogaclass">Select a class:</label>
+              <select name="yogaclass_id" id="yogaclass">
+                <option value="{{yogaclass.id}}">{{yogaclass.name}} ({{yogaclass.time}})</option>
+              </select>
+            <input type="submit" value="Make a Booking">
+
+    </details>
     {% endif %}
 {% endfor %}
 </section>

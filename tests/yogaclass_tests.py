@@ -13,4 +13,14 @@ class TestYogaClass(unittest.TestCase):
         self.yogaclass.count_members(members)
         self.assertEqual(5, len(self.yogaclass.members))
 
+    def test_can_check_if_capacity__no_capacity(self):
+        members = [1, 2, 3, 4, 5]
+        self.yogaclass.check_if_capacity(members)
+        self.assertEqual(False, self.yogaclass.available)
+
+    def test_can_check_if_capacity__capacity(self):
+        members = [1, 2, 3, 4]
+        self.yogaclass.check_if_capacity(members)
+        self.assertEqual(True, self.yogaclass.available)    
+
   

@@ -5,16 +5,18 @@ from models.yogaclass import YogaClass
 
 import repositories.yogaclass_repository as yogaclass_repository
 import repositories.instructor_repository as instructor_repository
+import repositories.member_repository as member_repository
 
 yogaclasses_blueprint = Blueprint("yogaclasses", __name__)
 
 @yogaclasses_blueprint.route('/yogaclasses')
 def yogaclass():
+    members = member_repository.select_all()
     yogaclasses = yogaclass_repository.select_all()
     for yogaclass in yogaclasses:
         members = yogaclass_repository.members(yogaclass)
         yogaclass.check_if_capacity(members)
-    return render_template("yogaclasses/index.html", title = "Classes", all_yogaclasses=yogaclasses)
+    return render_template("yogaclasses/index.html", title = "Classes", all_yogaclasses=yogaclasses, all_members = members)
 
 @yogaclasses_blueprint.route('/yogaclasses/<id>')
 def show_yogaclass(id):
