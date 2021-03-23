@@ -4,22 +4,25 @@ from models.member import Member
 from models.yogaclass import YogaClass
 
 import repositories.instructor_repository as instructor_repository
+import repositories.memb_type_repository as memb_type_repository
 
 def save(member):
     sql = """
-        INSERT INTO members (name, 
+        INSERT INTO members (image_url,
+                             name, 
                              date_of_birth, 
                              memb_number,
-                             memb_type, 
+                             memb_type_id, 
                              address, 
                              contact_number, 
                              active) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *
         """
-    values = [member.name, 
+    values = [member.image_url,
+              member.name, 
               member.date_of_birth, 
               member.memb_number, 
-              member.memb_type, 
+              member.memb_type.id, 
               member.address, 
               member.contact_number,
               member.active]
@@ -36,10 +39,12 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        member = Member(row['name'], 
+        memb_type = memb_type_repository.select(row['memb_type_id'])
+        member = Member(row['image_url'],
+                        row['name'], 
                         row['date_of_birth'],
                         row['memb_number'],
-                        row['memb_type'], 
+                        memb_type, 
                         row['address'], 
                         row['contact_number'], 
                         row['active'],   
@@ -55,10 +60,12 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        member = Member(result['name'], 
+        memb_type = memb_type_repository.select(result['memb_type_id'])
+        member = Member(result['image_url'],
+                        result['name'], 
                         result['date_of_birth'],
                         result['memb_number'],
-                        result['memb_type'], 
+                        memb_type, 
                         result['address'], 
                         result['contact_number'], 
                         result['active'],   
@@ -80,20 +87,22 @@ def delete(id):
 def update(member):
     sql = """
         UPDATE members 
-        SET (name, 
+        SET (image_url,
+             name, 
              date_of_birth, 
              memb_number,
-             memb_type, 
+             memb_type_id, 
              address, 
              contact_number, 
              active)  
-             = (%s, %s, %s, %s, %s, %s, %s) 
+             = (%s, %s, %s, %s, %s, %s, %s, %s) 
              WHERE id = %s
         """
-    values = [member.name, 
+    values = [member.image_url,
+              member.name, 
               member.date_of_birth, 
               member.memb_number, 
-              member.memb_type, 
+              member.memb_type.id, 
               member.address, 
               member.contact_number,
               member.active,
