@@ -3,6 +3,8 @@ from db.run_sql import run_sql
 from models.member import Member
 from models.yogaclass import YogaClass
 
+import repositories.instructor_repository as instructor_repository
+
 def save(member):
     sql = """
         INSERT INTO members (name, 
@@ -109,10 +111,12 @@ def yogaclasses(member):
     results = run_sql(sql, values)
     yogaclasses = []
     for row in results:
+       instructor = instructor_repository.select(row['instructor_id']) 
        yogaclass = YogaClass(row['name'], 
                              row['duration'],
                              row['description'],
-                             row['instructor'], 
+                             instructor,
+                             row['date'],
                              row['time'], 
                              row['capacity'], 
                              row['active'],   
