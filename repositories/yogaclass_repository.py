@@ -7,6 +7,8 @@ from models.instructor import Instructor
 
 import repositories.member_repository as member_repository
 import repositories.instructor_repository as instructor_repository
+import repositories.memb_type_repository as memb_type_repository
+
 
 def save(yogaclass):
     sql = """
@@ -122,15 +124,17 @@ def members(yogaclass):
     results = run_sql(sql, values)
     members = []
     for row in results:
-       member = Member(row['name'], 
-                       row['date_of_birth'],
-                       row['memb_number'],
-                       row['memb_type'], 
-                       row['address'], 
-                       row['contact_number'], 
-                       row['active'],   
-                       row['id'])
-       members.append(member)
+        memb_type = memb_type_repository.select(row['memb_type_id'])
+        member = Member(row['image_url'],
+                        row['name'], 
+                        row['date_of_birth'],
+                        row['memb_number'],
+                        memb_type, 
+                        row['address'], 
+                        row['contact_number'], 
+                        row['active'],   
+                        row['id'])
+        members.append(member)
     return members      
 
 def bookings(yogaclass):
