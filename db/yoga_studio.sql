@@ -2,10 +2,11 @@ DROP TABLE bookings;
 DROP TABLE members;
 DROP TABLE yogaclasses;
 DROP TABLE instructors;
+DROP TABLE memb_types;
 
 CREATE TABLE memb_types (
     id SERIAL PRIMARY KEY,
-    type VARCHAR(255)
+    name VARCHAR(255)
 );
 
 CREATE TABLE members (
