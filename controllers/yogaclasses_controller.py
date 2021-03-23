@@ -11,12 +11,13 @@ yogaclasses_blueprint = Blueprint("yogaclasses", __name__)
 
 @yogaclasses_blueprint.route('/yogaclasses')
 def yogaclass():
-    members = member_repository.select_all()
+    all_members = member_repository.select_all()
     yogaclasses = yogaclass_repository.select_all()
     for yogaclass in yogaclasses:
         members = yogaclass_repository.members(yogaclass)
         yogaclass.check_if_capacity(members)
-    return render_template("yogaclasses/index.html", title = "Classes", all_yogaclasses=yogaclasses, all_members = members)
+        yogaclass.members = all_members
+    return render_template("yogaclasses/index.html", title = "Classes", all_yogaclasses=yogaclasses)
 
 @yogaclasses_blueprint.route('/yogaclasses/<id>')
 def show_yogaclass(id):
