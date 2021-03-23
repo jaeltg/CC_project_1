@@ -3,8 +3,11 @@
 {% block content %}
 <h2>Edit Member</h2>
 <form action="/members/{{selected_member.id}}" method="POST">
+    <label for="image_url">Name:</label>
+    <input type="text" id="image_url" name="image_url" value="{{selected_member.image_url}}" required>
+
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="{{selected_member.name}}" required autofocus>
+    <input type="text" id="name" name="name" value="{{selected_member.name}}" required>
 
     <label for="date_of_birth">Date of Birth:</label>
     <input type="date" id="date_of_birth" name="date_of_birth" value="{{selected_member.date_of_birth}}" required>
@@ -14,14 +17,12 @@
 
     <label for="memb_type">Membership Type:</label>
     <select name="memb_type" id="memb_type">
-        <option value="Standard"
-            {% if selected_member.memb_type == "Standard" %} selected="selected" {% endif %}>
-            Standard
-        </option>
-        <option value="Premium"
-            {% if selected_member.memb_type == "Premium" %} selected="selected" {% endif %}>
-            Premium
-        </option>
+        {% for memb_type in all_memb_types %}
+          <option value="{{ memb_type.id }}"
+            {% if selected_member.memb_type.id == memb_type.id %} selected="selected"{% endif %}>
+            {{ memb_type.name }}
+          </option>
+        {% endfor %}
     </select>
 
     <label for="address">Address:</label>

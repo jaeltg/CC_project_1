@@ -3,6 +3,9 @@
 {% block content %}
 <h2>Add Member</h2>
 <form action="/members" method="POST">
+    <label for="image_url">Name:</label>
+    <input type="text" id="image_url" name="image_url" required>
+
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Name" required>
 
@@ -14,9 +17,10 @@
 
     <label for="memb_type">Membership Type:</label>
     <select name="memb_type" id="memb_type">
-        <option selected="true" disabled=disabled>Select Membership Type</option>
-        <option value="Standard">Standard</option>
-        <option value="Premium">Premium</option>
+        <option  selected="true" disabled="disabled">Choose Membership Type</option>
+        {% for memb_type in all_memb_types %}
+        <option value="{{ memb_type.id }}">{{ memb_type.name }}</option>
+        {% endfor %}
     </select>
 
     <label for="address">Address:</label>
