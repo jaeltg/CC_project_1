@@ -3,8 +3,10 @@ from db.run_sql import run_sql
 from models.yogaclass import YogaClass
 from models.member import Member
 from models.booking import Booking
+from models.instructor import Instructor
 
 import repositories.member_repository as member_repository
+import repositories.instructor_repository as instructor_repository
 
 def save(yogaclass):
     sql = """
@@ -39,10 +41,12 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
+        instructor = instructor_repository.select(row['instructor_id'])
         yogaclass = YogaClass(row['name'], 
                               row['duration'],
                               row['description'],
-                              row['instructor'], 
+                              instructor,
+                              row['date'],
                               row['time'], 
                               row['capacity'], 
                               row['active'],   
@@ -58,10 +62,12 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
+        instructor = instructor_repository.select(result['instructor_id'])
         yogaclass = YogaClass(result['name'], 
                               result['duration'],
                               result['description'],
-                              result['instructor'], 
+                              instructor,
+                              result['date'],
                               result['time'], 
                               result['capacity'], 
                               result['active'],   
@@ -86,17 +92,19 @@ def update(yogaclass):
         SET (name, 
             duration, 
             description,
-            instructor, 
+            instructor_id,
+            date, 
             time, 
             capacity, 
             active)  
-             = (%s, %s, %s, %s, %s, %s, %s) 
+             = (%s, %s, %s, %s, %s, %s, %s, %s) 
              WHERE id = %s
         """
     values = [yogaclass.name, 
               yogaclass.duration, 
               yogaclass.description, 
-              yogaclass.instructor, 
+              yogaclass.instructor.id,
+              yogaclass.date, 
               yogaclass.time, 
               yogaclass.capacity,
               yogaclass.active,
