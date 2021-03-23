@@ -6,7 +6,7 @@
 <a href="/members/new">Add Member</a>
 <section>
 {% for member in all_members %}
-    <!-- <img src="" alt=""> need if statement for image to change with each member-->
+    <img src="{{member.image_url}}" alt="{{member.name}}">
     <h3>
         <a href="/members/{{member.id}}">
             {{member.name}}

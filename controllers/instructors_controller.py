@@ -18,10 +18,11 @@ def new_instructor():
 
 @instructors_blueprint.route('/instructors', methods=['POST'])
 def create_instructor():
+    image_url = request.form["image_url"]
     name = request.form["name"]
     contact_number = request.form["contact_number"]
 
-    instructor = Instructor(name, contact_number)
+    instructor = Instructor(image_url, name, contact_number)
 
     instructor_repository.save(instructor)
 
@@ -34,10 +35,11 @@ def edit_instructor(id):
 
 @instructors_blueprint.route("/instructors/<id>", methods=['POST'])
 def update_instructor(id):
+    image_url = request.form["image_url"]
     name = request.form["name"]
     contact_number = request.form["contact_number"]
 
-    instructor = Instructor(name, contact_number, id)
+    instructor = Instructor(image_url, name, contact_number, id)
 
     instructor_repository.update(instructor)
     return redirect('/instructors')

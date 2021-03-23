@@ -4,6 +4,9 @@
 <h2>Edit Instructor</h2>
 
 <form action="/instructors/{{selected_instructor.id}}" method="POST">
+    <label for="image_url">Image:</label>
+    <input type="text" id="image_url" name="image_url" value="{{selected_instructor.image_url}}" required>
+
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="{{selected_instructor.name}}" required autofocus>
 

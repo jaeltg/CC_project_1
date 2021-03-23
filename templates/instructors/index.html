@@ -5,7 +5,7 @@
 <a href="/instructors/new">Add Instructor</a>
 <section>
 {% for instructor in all_instructors %}
-    <!-- <img src="" alt=""> need if statement for image to change with each instructor-->
+    <img src="{{instructor.image_url}}" alt="{{instructor.name}}">
     <h3>
         {{instructor.name}}
     </h3>

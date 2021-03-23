@@ -23,6 +23,7 @@ CREATE TABLE members (
 
 CREATE TABLE instructors (
     id SERIAL PRIMARY KEY,
+    image_url TEXT,
     name VARCHAR(255),
     contact_number VARCHAR(255)
 );

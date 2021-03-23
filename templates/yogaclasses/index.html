@@ -13,6 +13,7 @@
     <h4>
         {{yogaclass.instructor.name}}
     </h4>
+
     <form action="/yogaclasses/{{yogaclass.id}}/delete" method="POST">
         <input type="submit" value="Remove Class">
     </form> 
@@ -24,13 +25,13 @@
     <!-- Does not work! -->
         <summary>Book Class</summary>
 
-        <form action="/bookings" method="POST">
+        <!-- <form action="/bookings" method="POST">
             <label for="member">Select a member:</label>
               <select name="member_id" id="member">
                 {% for member in all_members %}
                 <option value="{{member.id}}">{{member.name}}</option>
                 {% endfor %}
-              </select>
+              </select> -->
             
             <label for="yogaclass">Select a class:</label>
               <select name="yogaclass_id" id="yogaclass">

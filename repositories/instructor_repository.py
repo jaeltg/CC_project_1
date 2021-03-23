@@ -6,10 +6,10 @@ from models.yogaclass import YogaClass
 
 def save(instructor):
     sql = """
-        INSERT INTO instructors (name, contact_number)
-            VALUES (%s, %s) RETURNING *
+        INSERT INTO instructors (image_url, name, contact_number)
+            VALUES (%s, %s, %s) RETURNING *
         """
-    values = [instructor.name, instructor.contact_number]
+    values = [instructor.image_url, instructor.name, instructor.contact_number]
     results = run_sql(sql, values)
     id = results[0]['id']
     instructor.id = id
@@ -23,7 +23,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        instructor = Instructor(row['name'],
+        instructor = Instructor(row['image_url'],
+                                row['name'],
                                 row['contact_number'],    
                                 row['id'])
         instructors.append(instructor)
@@ -37,7 +38,8 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        instructor = Instructor(result['name'], 
+        instructor = Instructor(result['image_url'],
+                                result['name'],  
                                 result['contact_number'],  
                                 result['id'])
     return instructor
@@ -57,30 +59,31 @@ def delete(id):
 def update(instructor):
     sql = """
         UPDATE instructors 
-        SET (name, contact_number) = (%s, %s) 
+        SET (image_url, name, contact_number) = (%s, %s, %s) 
         WHERE id = %s
         """
-    values = [instructor.name, 
+    values = [instructor.image_url,
+              instructor.name, 
               instructor.contact_number,
               instructor.id]
     run_sql(sql, values)
 
-def yogaclasses(instructor):
-    yogaclasses = []
+# def yogaclasses(instructor):
+#     yogaclasses = []
 
-    sql = "SELECT * FROM yogaclasses WHERE instructor_id = %s"
-    values = [instructor.id]
-    results = run_sql(sql, values)
+#     sql = "SELECT * FROM yogaclasses WHERE instructor_id = %s"
+#     values = [instructor.id]
+#     results = run_sql(sql, values)
 
-    for row in results:
-        yogaclass = YogaClass(row['name'], 
-                              row['duration'],
-                              row['description'],
-                              row['instructor_id'],
-                              row['date'],
-                              row['time'], 
-                              row['capacity'], 
-                              row['active'],   
-                              row['id'])
-        yogaclasses.append(yogaclass)
-    return yogaclasses    
+#     for row in results:
+#         yogaclass = YogaClass(row['name'], 
+#                               row['duration'],
+#                               row['description'],
+#                               row['instructor_id'],
+#                               row['date'],
+#                               row['time'], 
+#                               row['capacity'], 
+#                               row['active'],   
+#                               row['id'])
+#         yogaclasses.append(yogaclass)
+#     return yogaclasses    

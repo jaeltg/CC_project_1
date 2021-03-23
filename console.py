@@ -25,10 +25,10 @@ memb_type_repository.save(memb_type2)
 member1 = Member("https://static0.srcdn.com/wordpress/wp-content/uploads/2020/04/Jess-New-Girl-FEATURED-Cropped.jpg","Jessica Day", "1982-02-13", 6540003, memb_type1, "The Loft, LA", "07911 123444")
 member_repository.save(member1)
 
-member2 = Member("https://static0.srcdn.com/wordpress/wp-content/uploads/2020/04/Jess-New-Girl-FEATURED-Cropped.jpg","Nick Miller", "1990-09-29", 7800643, memb_type1, "The Loft, LA", "07912 123456")
+member2 = Member("https://mediaproxy.salon.com/width/1200/https://media.salon.com/2012/10/jake_johnson_square.jpg","Nick Miller", "1990-09-29", 7800643, memb_type1, "The Loft, LA", "07912 123456")
 member_repository.save(member2)
 
-instructor1 = Instructor("Schmidt", "07912 123456")
+instructor1 = Instructor("https://media.gq.com/photos/57f2d9a9c63464861a63ddf9/4:3/w_1459,h_1094,c_limit/max-greenfield.jpg","Schmidt", "07912 123456")
 instructor_repository.save(instructor1)
 
 yogaclass1 = YogaClass("Aerial Yoga", 45, "Yoga whle being supported by a hammock to help with deeper stretches and greater flexibility.", instructor1, "2021-03-23", "18:00", 10)
