@@ -11,6 +11,10 @@ bookings_blueprint = Blueprint("bookings", __name__)
 def booking_successful():
     return render_template("bookings/successful.html", title="Booking Succesful!")
 
+@bookings_blueprint.route("/bookings/unsuccessful")
+def booking_unsuccessful():
+    return render_template("bookings/unsuccessful.html", title="Class is Full!")
+
 @bookings_blueprint.route("/bookings/new", methods=['GET'])
 def new_booking():
     members = member_repository.select_all()
@@ -23,9 +27,14 @@ def create_booking():
     yogaclass_id = request.form['yogaclass_id']
     member = member_repository.select(member_id)
     yogaclass = yogaclass_repository.select(yogaclass_id)
+    members = yogaclass_repository.members(yogaclass)
     booking = Booking(member, yogaclass)
-    booking_repository.save(booking)
-    return redirect('/bookings/successful')
+    booking.check_if_capacity(members)
+    if booking.available == True:
+        booking_repository.save(booking)
+        return redirect('/bookings/successful')
+    else:
+        return redirect('/bookings/unsuccessful')    
     
 @bookings_blueprint.route("/bookings/<id>/delete", methods=['POST'])
 def delete_booking(id):
