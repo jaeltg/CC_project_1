@@ -2,12 +2,14 @@ body{
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+
 .header {
     background-color:rgb(31, 165, 166);
     color:rgb(240, 237, 230);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
 hgroup {
     font-family: 'Roboto Slab', serif;
     text-transform: uppercase;
@@ -17,7 +19,6 @@ hgroup {
 hgroup > h2 {
     margin-top: 0px;
     font-size: 20px;
-
 }
 
 hgroup > h1 {
@@ -62,4 +63,17 @@ nav > ul {
     justify-content: flex-end;
     margin-top: 35px;
     margin-right:10px;
+}
+
+#bookid {
+    display: box;
+    background-color: rgb(221, 117, 100);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+#bookid:hover {
+    color: rgb(221, 117, 100);
+    border:rgb(221, 117, 100) solid 3px;
+    background-color: transparent;
 }
