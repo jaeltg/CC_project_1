@@ -2,28 +2,34 @@
 
 {% block content %}
 
+<section class="indexheader">
 <h2>Members</h2>
-<a href="/members/new">Add Member</a>
-<section>
+<a href="/members/new" class="submit2">Add Member</a>
+</section>
+<section class="gridcontainer">
 {% for member in all_members %}
+<section class="member">
+<section class="image">
     <img src="{{member.image_url}}" alt="{{member.name}}">
+</section>
+<section class="membinfo">        
     <h3>
         <a href="/members/{{member.id}}">
             {{member.name}}
         </a>
     </h3>
-    <section>
-        <h4>Membership:</h4>
-        <p>{{member.memb_number}}</p>
-        <p>{{member.memb_type.name}}</p>
-    </section>
+    <h4>Membership:</h4>
+    <p>{{member.memb_number}}</p>
+    <p>{{member.memb_type.name}}</p>
     {% if member.active == False %}
     <p>Inactive</p>
     {% endif %}
 
     <form action="/members/{{member.id}}/delete" method="POST">
-        <input type="submit" value="Remove Member">
-    </form> 
+        <input type="submit" value="Remove Member" class="submit">
+    </form>
+</section> 
+</section>  
 {% endfor %}
 </section>
 

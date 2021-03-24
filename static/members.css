@@ -1,0 +1,41 @@
+.image > img {
+    height: 150px;
+    width: 150px;
+} 
+
+.member {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 250px;
+}
+
+.gridcontainer {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.membinfo > h3 {
+    margin-top: 0;
+    margin-bottom: 15px
+}
+.membinfo > h3 > a {
+    color: black;
+    text-decoration: none;
+}
+
+.membinfo > h3 > a:hover {
+    text-decoration: underline;
+}
+
+.membinfo > p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.membinfo > h4 {
+    margin-bottom: 10px;
+}
+
+

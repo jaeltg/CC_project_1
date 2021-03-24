@@ -1,24 +1,35 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<section>
+<section class="membdetails">
+<section class="showimage">
     <img src="{{selected_member.image_url}}" alt="{{selected_member.name}}">
+</section>
+
+<section>   
     <h2>{{selected_member.name}}</h2>
     <p>
-        Date of Birth: {{selected_member.date_of_birth}}
+        <b>Date of Birth:</b> {{selected_member.date_of_birth}}
     </p>
     <p>
-        Address: {{selected_member.address}}
+        <b>Address:</b> {{selected_member.address}}
     </p>
     <p>
-        Contact Number: {{selected_member.contact_number}}
+        <b>Contact Number:</b> {{selected_member.contact_number}}
     </p>
 </section>
-<section>
+
+<section class="membership">
     <h3>Membership:</h3>
-    <p>{{selected_member.memb_number}}</p>
-    <p>{{selected_member.memb_type.id}}</p>
+    <p>
+        <b>Number:</b> {{selected_member.memb_number}}
+    </p>
+    <p>
+        <b>Type:</b>  {{selected_member.memb_type.name}}
+    </p>
 </section>
+</section>
+<section class="classesbooked">
 <section>
     <h2>Classes Booked:</h2>
     <ul>
@@ -27,6 +38,6 @@
      {% endfor %}   
     </ul>
 </section>
-<a href="/members/{{selected_member.id}}/edit">Edit Member</a>
-
+<a href="/members/{{selected_member.id}}/edit" class="submit2">Edit Member</a>
+</section>
 {% endblock %}
