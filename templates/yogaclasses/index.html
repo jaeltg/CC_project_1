@@ -17,7 +17,7 @@
           {{yogaclass.instructor.name}}
       </h4>
       {% if yogaclass.active == False %}
-      <p>Inactive</p>
+      <p class="inactive">Inactive</p>
       {% endif %}
 
       <form action="/yogaclasses/{{yogaclass.id}}/delete" method="POST">

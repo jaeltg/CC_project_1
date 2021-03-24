@@ -22,7 +22,7 @@
     <p>{{member.memb_number}}</p>
     <p>{{member.memb_type.name}}</p>
     {% if member.active == False %}
-    <p>Inactive</p>
+    <p class="inactive">Inactive</p>
     {% endif %}
 
     <form action="/members/{{member.id}}/delete" method="POST">

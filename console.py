@@ -22,7 +22,7 @@ memb_type_repository.save(memb_type1)
 memb_type2 = MembType("Premium")
 memb_type_repository.save(memb_type2)
 
-member1 = Member("https://static0.srcdn.com/wordpress/wp-content/uploads/2020/04/Jess-New-Girl-FEATURED-Cropped.jpg","Jessica Day", "1982-02-13", 6540003, memb_type1, "The Loft, LA", "07911 123444")
+member1 = Member("https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-New-Girl-Zooey-Deschanel.jpg","Jessica Day", "1982-02-13", 6540003, memb_type1, "The Loft, LA", "07911 123444")
 member_repository.save(member1)
 
 member2 = Member("https://mediaproxy.salon.com/width/1200/https://media.salon.com/2012/10/jake_johnson_square.jpg","Nick Miller", "1990-09-29", 7800643, memb_type1, "The Loft, LA", "07912 123456")
