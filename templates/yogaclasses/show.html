@@ -1,8 +1,9 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2>{{selected_yogaclass.name}}</h2>
-<section>
+<h2 id="classname">{{selected_yogaclass.name}}</h2>
+<section class="showclass">
+<section class="classinfo">
     <p>
         {{selected_yogaclass.description}}
     </p>
@@ -16,19 +17,26 @@
             {{selected_yogaclass.instructor.name}}
         </p>
 </section>
-<section>
-    <h3>Members Booked ({{member_count}}/{{selected_yogaclass.capacity}})</h3> 
-      <ul>
-      {% for member in found_members%}   
-          <li>{{member.name}}</li>    
-      {% endfor %}
-      {% for booking in found_bookings%}     
-      <form action="/bookings/{{booking.id}}/delete" method="POST">
-        <input type="submit" value="Remove Booking">
-      </form> 
-      {% endfor %} 
-      </ul>
+<section class="membersbooked">
+    <h3>Members Booked ({{member_count}}/{{selected_yogaclass.capacity}})</h3>
+    <section class="memberslist">  
+        <section class="memberlistnames">
+        <ul>
+        {% for member in found_members%}   
+            <li>{{member.name}}</li>    
+        {% endfor %}
+        </ul>
+        </section>
+        <section class="removebooking">
+        {% for booking in found_bookings%}     
+        <form action="/bookings/{{booking.id}}/delete" method="POST">
+            <input type="submit" value="Remove Booking" class="submit">
+        </form> 
+        {% endfor %} 
+    </section>
+    </section>      
+</section>
 </section>
 
-<a href="/yogaclasses/{{selected_yogaclass.id}}/edit">Edit Class</a>
+<a href="/yogaclasses/{{selected_yogaclass.id}}/edit" class="submit2" id="editclass">Edit Class</a>
 {% endblock %}

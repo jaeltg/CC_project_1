@@ -1,0 +1,41 @@
+#classname {
+    margin-left: 10px;
+}
+.showclass {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.classinfo > img {
+    height:150px;
+    width: 150px
+}
+
+.membersbooked > h3 {
+    margin-left: 38px;
+    
+}
+
+.memberslist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul {
+    list-style: none;
+}
+
+.memberlistnames > ul > li {
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+.removebooking > form > input {
+    margin-top: 10px
+}
+
+#editclass {
+    margin-left: 10px
+}

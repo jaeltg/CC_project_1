@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static' filename='style.css')}}">
-    <link rel="stylesheet" href="{{url_for('static' filename='members.css')}}">
-    <link rel="stylesheet" href="{{url_for('static' filename='yogaclasses.css')}}">
-    <title>{{ title }} - Flex & Flow Yoga</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='members.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='yogaclasses.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='yogaclass.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='form.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>
-        <a href="/">Flex & Flow Yoga</a>
-    </h1>
+<section class="header">   
+    <hgroup>
+        <h1>
+        <a href="/">Flex & Flow</a>
+        </h1>
+        <h2>Yoga</h2>   
+    </hgroup>
     <nav>
         <ul>
             <li>
@@ -29,6 +38,7 @@
             </li>
         </ul>
     </nav>
+</section>
     {% block content %}
 
     {% endblock %}

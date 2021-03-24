@@ -1,0 +1,47 @@
+.formtitle {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.mainforms > div > input { 
+    margin-right: 200px;
+}
+
+.mainforms > div > select { 
+    margin-right: 200px;
+}
+
+.mainforms > div {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.mainforms > div > label{
+    margin-left: 200px
+}
+
+.submit3 {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: rgb(221, 117, 100);
+    color:rgb(240, 237, 230);
+    font-weight: 900;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    width: 200px;
+}
+
+.submitbutton > input {
+    margin-top: 25px;
+    text-align: center;  
+}
+
+.submitbutton {
+    margin-left: 400px;
+    margin-right: 200px;
+}
+

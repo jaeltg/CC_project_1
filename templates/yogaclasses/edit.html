@@ -1,17 +1,21 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2>Edit Class</h2>
-<form action="/yogaclasses/{{selected_yogaclass.id}}" method="POST">
+<h2 class="formtitle">Edit Class</h2>
+<form action="/yogaclasses/{{selected_yogaclass.id}}" method="POST" class="mainforms">
+<div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="{{selected_yogaclass.name}}" required>
-
+</div>
+<div>
     <label for="duration">Duration:</label>
     <input type="number" id="duration" name="duration" value="{{selected_yogaclass.duration}}" required>
-
-    <label for="description"></label>Description:</label>
+</div>
+<div>
+    <label for="description">Description:</label>
     <input type="text" id="description" name="description" value="{{selected_yogaclass.description}}" required>
-
+</div>
+<div>
     <label for="instructor">Instructor:</label>
     <select name="instructor" id="instructor">
         {% for instructor in all_instructors %}
@@ -21,16 +25,20 @@
         </option>
         {% endfor %}
     </select>
-
+</div>
+<div>
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" value="{{selected_yogaclass.date}}" required>
-
+</div>
+<div>
     <label for="time">Time:</label>
     <input type="time" id="time" name="time" value="{{selected_yogaclass.time}}" required>
-
+</div>
+<div>
     <label for="capacity">Capacity:</label>
     <input type="number" id="capacity" name="capacity" value="{{selected_yogaclass.capacity}}" required>
-
+</div>
+<div>
     <label for="active">Active?</label>
     <select name="active" id="active">
         <option value="true"
@@ -42,7 +50,9 @@
             False
         </option>
     </select>
-
-    <input type="submit" value="Edit Class">
+</div>
+<div class="submitbutton">
+    <input type="submit" value="Edit Class" class="submit3">
+</div>    
 </form>
 {% endblock %}

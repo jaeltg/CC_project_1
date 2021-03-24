@@ -1,0 +1,86 @@
+h2 {
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.indexheader {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    margin-right:10px;
+}
+
+.submit2 {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+    background-color: rgb(221, 117, 100);
+    margin-top: 20px;
+    color:rgb(240, 237, 230);
+    font-weight: 900;
+    border-radius: 8px;
+}
+
+.submit2:hover {
+    color: rgb(221, 117, 100);
+    border:rgb(221, 117, 100) solid 3px;
+    background-color: transparent;
+}
+
+.classesbody {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.info > h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.info > h3 > a {
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.info > h3 > a:hover{
+    text-decoration: underline;
+}
+
+.info > h4 {
+    margin-top:0;
+    margin-bottom: 10px;
+}
+
+.submit {
+    background-color: rgb(178, 222, 221);
+    font-family: 'Quicksand', sans-serif;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.submit:hover {
+    background-color: rgb(221, 117, 100);
+    color: rgb(240, 237, 230);
+}
+
+.bookclass {
+    margin-top:30px;
+}
+
+.bookclass > p {
+    color:rgb(221, 117, 100);
+    font-weight: bold;
+}
+
+
+

@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+.header {
+    background-color:rgb(31, 165, 166);
+    color:rgb(240, 237, 230);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+hgroup {
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    text-decoration: None;
+    margin-left: 10px;
+}
+hgroup > h2 {
+    margin-top: 0px;
+    font-size: 20px;
+
+}
+
+hgroup > h1 {
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+h1 > a:visited {
+    text-decoration: None;
+    color: white;
+}
+h1 > a:link {
+    text-decoration: None;
+    color: white;
+}
+h1 > a:active {
+    text-decoration: None;
+    color: white;
+}
+
+h1 > a:hover {
+    text-decoration: underline;
+}
+
+nav > ul > li > a {
+    color:rgb(240, 237, 230);
+    text-decoration: None;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav > ul > li > a:hover{
+    text-decoration: underline
+}
+
+nav > ul {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 15px;
+    list-style: none;
+    justify-content: flex-end;
+    margin-top: 35px;
+    margin-right:10px;
+}
