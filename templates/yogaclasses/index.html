@@ -13,6 +13,9 @@
     <h4>
         {{yogaclass.instructor.name}}
     </h4>
+    {% if yogaclass.active == False %}
+    <p>Inactive</p>
+    {% endif %}
 
     <form action="/yogaclasses/{{yogaclass.id}}/delete" method="POST">
         <input type="submit" value="Remove Class">
@@ -20,6 +23,8 @@
 
     {% if yogaclass.available == False %}
     <a href="">Class is Full</a>
+    {% elif yogaclass.active == False %}
+    <a href="">Class not available</a>
     {% else %}
     <details>
     <!-- Does not work! -->
@@ -29,7 +34,9 @@
             <label for="member">Select a member:</label>
               <select name="member_id" id="member">
                 {% for member in yogaclass.members %}
+                {% if member.active == True %}
                 <option value="{{member.id}}">{{member.name}}</option>
+                {% endif %}
                 {% endfor %}
               </select>
             

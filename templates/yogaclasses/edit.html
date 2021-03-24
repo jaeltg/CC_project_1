@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2>Add Class</h2>
+<h2>Edit Class</h2>
 <form action="/yogaclasses/{{selected_yogaclass.id}}" method="POST">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" value="{{selected_yogaclass.name}}" required>
