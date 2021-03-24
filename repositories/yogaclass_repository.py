@@ -151,3 +151,10 @@ def bookings(yogaclass):
         booking = Booking(member, yogaclass, row['id'])
         bookings.append(booking)
     return bookings    
+
+# def is_available(yogaclass):
+#     members = members(yogaclass)
+#     if yogaclass.capacity > len(members):
+#         return True
+#     else:
+#         return False

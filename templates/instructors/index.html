@@ -1,17 +1,23 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<section class="indexheader">
 <h2>Instructors</h2>
-<a href="/instructors/new">Add Instructor</a>
-<section>
+<a href="/instructors/new" class="submit2">Add Instructor</a>
+</section>
+<section class="gridcontainer">
 {% for instructor in all_instructors %}
-    <img src="{{instructor.image_url}}" alt="{{instructor.name}}">
+<section class="instructor">
+<section>   
+    <img src="{{instructor.image_url}}" alt="{{instructor.name}}" id="instimage">
+</section>
+<section class="instdetails">     
     <h3>
         {{instructor.name}}
     </h3>
     <p>{{instructor.contact_number}}</p>
 
-    <h4>Classes:</h4>
+    <h3>Classes:</h3>
     <ul>
     {% for yogaclass in all_yogaclasses %}
     {% if yogaclass.instructor.id == instructor.id%}   
@@ -22,11 +28,13 @@
     {% endfor %}    
     </ul>
 
-    <a href="/instructors/{{instructor.id}}/edit">Edit Instructor</a> 
+    <a href="/instructors/{{instructor.id}}/edit" class="submit4">Edit Instructor</a> 
    
     <form action="/instructors/{{instructor.id}}/delete" method="POST">
-        <input type="submit" value="Remove Instructor">
+        <input type="submit" value="Remove Instructor" class="submit">
     </form>
+</section>     
+</section>    
 {% endfor %}
 </section>
 

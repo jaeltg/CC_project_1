@@ -1,16 +1,14 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2>Your Booking has been successful!</h2>
+<h2 class="formtitle">Your Booking has been successful!</h2>
+<section class="flexcontainer">
 <p>
-<a href="/bookings/new"">Make Another Booking</a>
+<a href="/bookings/new" class="submit2">Make Another Booking</a>
 </p>
 <p>
-<a href="/yogaclasses">Back to Classes</a>
+<a href="/yogaclasses" class="submit2">Back to Classes</a>
 </p>
-<p>
-<a href="/members">Back to Members</a>
-</p>
-
+</section>
 
 {% endblock %}
