@@ -1,0 +1,28 @@
+.showimage > img {
+    height: 270px;
+    width: 270px;
+}
+
+.membdetails {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.membership {
+    background-color: rgb(178, 222, 221);
+    padding-left: 20px;
+    height: 150px
+}
+
+.classesbooked {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+
+.classesbooked > a {
+    margin-top: 80px;
+}
