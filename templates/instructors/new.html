@@ -1,19 +1,24 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2>Add Instructor</h2>
+<h2 class="formtitle">Add Instructor</h2>
 
-<form action="/instructors" method="POST">
+<form action="/instructors" method="POST" class="mainforms">
+<div>   
     <label for="image_url">Image:</label>
     <input type="text" id="image_url" name="image_url" placeholder="Upload Image" required>
-
+</div> 
+<div> 
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Name" required>
-
+</div> 
+<div> 
     <label for="contact_number">Contact Number:</label>
     <input type="text" id="contact_number" name="contact_number" required>
-
-    <input type="submit" value="Add Instructor">
+</div> 
+<div class="submitbutton"> 
+    <input type="submit" value="Add Instructor" class="submit3">
+</div>     
 </form>
 
 {% endblock %}

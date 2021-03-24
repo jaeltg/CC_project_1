@@ -1,25 +1,29 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Make a Booking</h1>
-<form action="/bookings" method="POST">
-  <label for="member">Select a member:</label>
-    <select name="member_id" id="member">
-      {% for member in all_members %}
-      {% if member.active == True %}
-      <option value="{{member.id}}">{{member.name}}</option>
-      {% endif %}
-      {% endfor %}
-    </select>
-  
-  <label for="yogaclass">Select a class:</label>
-    <select name="yogaclass_id" id="yogaclass">
-      {% for yogaclass in all_yogaclasses %}
-      {% if yogaclass.active == True %}
-      <option value="{{yogaclass.id}}">{{yogaclass.name}} ({{yogaclass.time}})</option>
-      {% endif %}
-      {% endfor %}
-    </select>
-
-  <input type="submit" value="Make a Booking">
+<h2 class="formtitle">Make a Booking</h2>
+<form action="/bookings" method="POST" class="mainforms">
+  <div>
+    <label for="member">Select a member:</label>
+      <select name="member_id" id="member">
+        {% for member in all_members %}
+        {% if member.active == True %}
+        <option value="{{member.id}}">{{member.name}}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+  </div>
+  <div>
+    <label for="yogaclass">Select a class:</label>
+      <select name="yogaclass_id" id="yogaclass">
+        {% for yogaclass in all_yogaclasses %}
+        {% if yogaclass.active == True %}
+        <option value="{{yogaclass.id}}">{{yogaclass.name}} ({{yogaclass.time}})</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+  </div>
+  <div class="submitbutton">
+    <input type="submit" value="Make a Booking" class="submit3">
+  </div>
 {% endblock %}

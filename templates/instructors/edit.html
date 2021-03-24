@@ -1,18 +1,23 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2>Edit Instructor</h2>
+<h2 class="formtitle">Edit Instructor</h2>
 
-<form action="/instructors/{{selected_instructor.id}}" method="POST">
-    <label for="image_url">Image:</label>
-    <input type="text" id="image_url" name="image_url" value="{{selected_instructor.image_url}}" required>
-
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="{{selected_instructor.name}}" required autofocus>
-
-    <label for="contact_number">Contact Number:</label>
-    <input type="text" id="contact_number" name="contact_number" value="{{selected_instructor.contact_number}}" required>
-
-    <input type="submit" value="Edit Instructor">
+<form action="/instructors/{{selected_instructor.id}}" method="POST" class="mainforms">
+    <div>
+        <label for="image_url">Image:</label>
+        <input type="text" id="image_url" name="image_url" value="{{selected_instructor.image_url}}" required>
+    </div>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{selected_instructor.name}}" required autofocus>
+    </div>
+    <div>
+        <label for="contact_number">Contact Number:</label>
+        <input type="text" id="contact_number" name="contact_number" value="{{selected_instructor.contact_number}}" required>
+    </div>
+    <div class="submitbutton">
+        <input type="submit" value="Edit Instructor" class="submit3">
+    </div>
 </form>
 {% endblock %}
