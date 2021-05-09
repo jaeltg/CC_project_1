@@ -23,6 +23,10 @@ class YogaClass:
         if member_count == self.capacity:
            self.available = False   
 
+# to check if there is capacity in a yoga class:
+# 1) count the members booked in the class using len(member_list), and store in a      variable (memb_count).
+# 2) compare the member count to the maximum capacity.
+# 3) if member count is less than capacity class is available to book otherwise is unavailable.
      
 
 

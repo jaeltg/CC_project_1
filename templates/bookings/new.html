@@ -9,6 +9,10 @@
         {% for member in all_members %}
         {% if member.active == True %}
         <option value="{{member.id}}">{{member.name}}</option>
+        {% elif member.active == False %}
+        <option value="{{member.id}}" disabled="disabled">{{member.name}} - Inactive</option>
+        <!-- {% elif member not in found_members %}
+        <option value="{{member.id}}" disabled="disabled">{{member.name}} - Inactive</option> -->
         {% endif %}
         {% endfor %}
       </select>
@@ -19,6 +23,8 @@
         {% for yogaclass in all_yogaclasses %}
         {% if yogaclass.active == True %}
         <option value="{{yogaclass.id}}">{{yogaclass.name}} ({{yogaclass.time}})</option>
+        {% elif yogaclass.active == False %}
+        <option value="{{yogaclass.id}}" disabled="disabled">{{yogaclass.name}} ({{yogaclass.time}}) - Inactive</option>
         {% endif %}
         {% endfor %}
       </select>

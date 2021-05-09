@@ -34,21 +34,25 @@
         <summary>Book Class</summary>
 
         <form action="/bookings" method="POST">
+          <div>
             <label for="member">Select a member:</label>
               <select name="member_id" id="member">
                 {% for member in yogaclass.members %}
                 {% if member.active == True %}
                 <option value="{{member.id}}">{{member.name}}</option>
+                {% elif member.active == False %}
+                <option value="{{member.id}}" disabled="disabled">{{member.name}} - Inactive</option>
                 {% endif %}
                 {% endfor %}
               </select>
-            
+          </div>
+          <div>  
             <label for="yogaclass">Select a class:</label>
               <select name="yogaclass_id" id="yogaclass">
                 <option value="{{yogaclass.id}}">{{yogaclass.name}} ({{yogaclass.time}})</option>
               </select>
             <input type="submit" value="Make a Booking" class="submit">
-
+          </div>     
     </details>
     {% endif %}
   </section>
